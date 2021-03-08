@@ -1,10 +1,10 @@
-> github.com/tangboxuan
+    github.com/tangboxuan
 <table>
 <tr><th><h3>Time Complexity</h3></th><th><h3>Searching</h3></th></tr>
 <tr>
 <td>
   
-1 < logn < sqrt(n) < n < nlogn = logn! < n^2 < 2^n  
+1 < logn = log(n^2)< sqrt(n) < n < nlogn = logn! < n^2 < 2^n  
 
 |Recurrence           |Runtime|
 |:---:|:---:|
@@ -45,13 +45,13 @@ for (1,n-1): swap(i,rand(0,i))
 
 ## Trees
 
-|Structure|Search|Insert|Delete|Remark|
-|:---:|:---:|:---:|:---:|:---:|
-|Binary Search|h|h|h|**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
-|AVL|logn|logn+2R|logn+lognR|h < 2logn or n > 2^(h/2)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)
-|Trie|L|L|L|More space due to more overhead|
-|(a,b)|logn|logn|logn|**split** for insert, **merge+share** for delete
-|kd|h|h|h|Alternate splitting horizontally and vertically
+|Structure|Operation|Remark|
+|:---:|:---:|:---:|
+|Binary Search|h|**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
+|AVL|logn|h < 2logn or n > 2^(h/2)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)<br>**Insert** 2R **Delete** 2lognR
+|Trie|L|More space due to more overhead|
+|(a,b)|logn|**split** for insert, **merge+share** for delete
+|kd|h|Alternate splitting horizontally and vertically
 
 |Augmented Structure|Remark|
 |:---:|:---|
