@@ -5,8 +5,8 @@
 |System|Value|-x|Negation|Addition|Overflow
 |:---:|:---:|:---:|:---:|:---:|:---:
 |Sign & Magnitude|||Invert first bit|
-|1s Complement|+ve: same as 2s<br>-ve: 2s + 1|2^n - x - 1|Invert all bits|Ignore MSB carry out|MSB carry in != MSB carry out<br>Result opposite sign of A and B|
-|2s Complement|if x[n-1]: -= 2^(n-1)<br>for i in [n-2..0]:<br>if x[i]: += 2^i|2^n - x|Invert all bits + 1|If MSB carry out: +=1|Result opposite sign of A and B|
+|1s Complement|+ve: same as 2s<br>-ve: 2s + 1|2^n - x - 1|Invert all bits|If MSB carry out: +=1|Result opposite sign of A and B|
+|2s Complement|if x[n-1]: -= 2^(n-1)<br>for i in [n-2..0]:<br>if x[i]: += 2^i|2^n - x|Invert all bits + 1|Ignore MSB carry out|MSB carry in != MSB carry out<br>Result opposite sign of A and B|
 |Excess-n|x-n
 |IEEE 754|(Sign) (1.Mantissa) x 2^Exponent||Invert first bit|1: Sign<br>8: Ex-127 Exp|---<br>23: Mantissa
 

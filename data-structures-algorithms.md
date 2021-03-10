@@ -4,11 +4,11 @@
 <tr>
 <td>
   
-1 < logn = log(n^2)< sqrt(n) < n < nlogn = logn! < n^2 < 2^n  
+1 < logn = log(n^2)< sqrt(n) < sqrt(n)logn < n < nlogn = logn! < n^2 < 2^n < 2^2n  
 
 |Recurrence           |Runtime|
 |:---:|:---:|
-|T(n) = 2T(n-1) + O(1)|2^n|
+|T(n) = S(0,n-1)T(i) = 2T(n-1)|2^n|
 |T(n) = 2T(n/2) + O(n)|nlogn|
 |T(n) = T(n/2) + O(n)|n|
 |T(n) = 2T(n/2) + O(1)|n|
@@ -40,14 +40,14 @@ for (1,n-1): swap(i,rand(0,i))
 |Selection|n^2|n^2|n^2|No|Smallest k items are in smallest k positions|
 |Insertion|n|n^2|n^2|Yes|First k items are sorted|
 |Merge|nlogn|nlogn|nlogn|Yes|Groups of 2^x are sorted|
-|Quick|nlogn<br>nlogk|nlogn<br>nlogk|n^2<br>nk|No|Array is partitioned around pivot<br>T(n) = kT(n/k) + O(nlogk) -> nlogn|
+|Quick|nlogk|Med/Rand/Check<br>nlogk|First/Mid/Last<br>nk|No|Array is partitioned around pivot<br>T(n) = pT(n/p) + O(nlogp) -> nlogn<br>Duplicate: n^2 if no 3-way partition|
 |Reversal||n(logn)^2|||Quicksort with Mergesort around pivot
 
 ## Trees
 
 |Structure|Operation|Remark|
 |:---:|:---:|:---:|
-|Binary Search|h|**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
+|Binary Search|h|Full Tree: n = 2^h - 1<br>**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
 |AVL|logn|h < 2logn or n > 2^(h/2)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)<br>**Insert** 2R **Delete** 2lognR
 |Trie|L|More space due to more overhead|
 |(a,b)|logn|**split** for insert, **merge+share** for delete
@@ -57,11 +57,11 @@ for (1,n-1): swap(i,rand(0,i))
 |:---:|:---|
 |Dynamic Order Statistic|Stores weight of subtree. During functions, rank = left.weight + 1<br>**Select** left.weight < rank: left.select(k). Else: right.select(k-rank)<br>**Rank** recurse to root, if node is right child: rank += parent.left.weight + 1
 |Interval Tree|Sort by left endpoint. Stores max endpoint in node's subtree<br>**Search** (logn) If x > max or left is null, search(right). Else: search(left)<br>**All Overlap** (klogn) search node, add to list, delete node, repeat until null|
-|Orthogonal Range Search|Store all points as leaves of a BST. Internal nodes stores max of left.<br>**Range Query** (k+logn) find split node. do left & right traversals. <br>**2D Range Query** (k+(logn)^2) for node in x-tree, build y-tree using nodes in subtree.|
+|Orthogonal Range Search|Store all points as leaves of a BST. Internal nodes stores max of left.<br>**Range Query** (k+logn) find split node. do left & right traversals. <br>**2D Range Query** (k+(logn)^2) for node in x-tree, build y-tree using nodes in subtree. **Build2D** T(nlogn) S(nlogn)|
 
 ## Hashing
 Must redefine **hashCode** _default returns address_ and **equals** _for **get** to work_  
 |Collision|Insert|Search|Space|Remarks|
 |:---:|:---:|:---:|:---:|:---:|
 |Linked List|h+1 = 1|h+n/m = 1|m+n|Simple Uniform Hashing Assumption<br>Worst case for search = n|
-|Open Addressing|1/(1-a),<br>|where<br>a = n/m<br>a<  1|n|Uniform Hashing Assumption<br>Linear Probing - Clusters<br>Double Hashing - h(k,i) = f(k) + ig(k) mod _m_, (m,g(k)) <br>**Delete** sets node to special value for **search**|
+|Open Addressing|1/(1-a),<br>|where<br>a = n/m<br>a<  1|n|Uniform Hashing Assumption<br>Linear Probing - Clusters<br>Double Hashing - h(k,i) = f(k) + ig(k) mod _m_, (m,g(k)) -> n^2 permutations !UHA<br>**Delete** sets node to special value for **search**|
