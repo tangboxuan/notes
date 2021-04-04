@@ -10,8 +10,6 @@
 |Excess-n|x-n
 |IEEE 754|(Sign) (1.Mantissa) x 2^Exponent||Invert first bit|1: Sign<br>8: Ex-127 Exp|---<br>23: Mantissa
 
-(+ve x)binary with leading zeroes = (x)2s = (x)1s = 1s complement of -x = 2s complement of -(x+1)
-
 ## MIPS
 
 
