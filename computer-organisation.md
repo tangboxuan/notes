@@ -10,6 +10,8 @@
 |Excess-n|x-n
 |IEEE 754|(Sign) (1.Mantissa) x 2^Exponent||Invert first bit|1: Sign<br>8: Ex-127 Exp|---<br>23: Mantissa
 
+(+ve x)binary with leading zeroes = (x)2s = (x)1s = 1s complement of -x = 2s complement of -(x+1)
+
 ## MIPS
 
 
@@ -43,8 +45,8 @@
 
 ## Links
 
-[Hexadecimal to Float](https://babbage.cs.qc.cuny.edu/IEEE-754.old/32bit.html)  
+[Hexadecimal to IEEE 754](https://babbage.cs.qc.cuny.edu/IEEE-754.old/32bit.html)  
 [Hexadecimal-Binary-Decimal](https://www.rapidtables.com/convert/number/binary-to-hex.html)  
 [XOR](http://xor.pw/#)  
 [Bitwise Calculator](https://miniwebtool.com/bitwise-calculator/)  
-[Instructions to Hexadecimal](https://www.eg.bucknell.edu/~csci320/mips_web/)  
+[MIPS to Hexadecimal](https://www.eg.bucknell.edu/~csci320/mips_web/)  

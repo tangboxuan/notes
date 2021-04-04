@@ -4,7 +4,7 @@
 <tr>
 <td>
   
-1 < logn = log(n^2)< sqrt(n) < sqrt(n)logn < n < nlogn = logn! < n^2 < 2^n < 2^2n  
+1 < logn = log(n^2)< sqrt(n) < n < nlogn = logn! < n^2 < 2^n < 2^2n  
 
 |Recurrence           |Runtime|
 |:---:|:---:|
@@ -34,21 +34,22 @@ for (1,n-1): swap(i,rand(0,i))
 
 ## Sorting
 
-|Algorithm|Best|Average|Worst|Stable|Invariant|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|Bubble|n|n^2|n^2|Yes|Largest k items are in final k positions|
-|Selection|n^2|n^2|n^2|No|Smallest k items are in smallest k positions|
-|Insertion|n|n^2|n^2|Yes|First k items are sorted|
-|Merge|nlogn|nlogn|nlogn|Yes|Groups of 2^x are sorted|
-|Quick|nlogk|Med/Rand/Check<br>nlogk|First/Mid/Last<br>nk|No|Array is partitioned around pivot<br>T(n) = pT(n/p) + O(nlogp) -> nlogn<br>Duplicate: n^2 if no 3-way partition|
-|Reversal||n(logn)^2|||Quicksort with Mergesort around pivot
+|Algorithm|Best|Average|Worst|Stable|Space|Invariant|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Bubble|n|n^2|n^2|Yes|1|Largest k items are in final k positions|
+|Selection|n^2|n^2|n^2|No|1|Smallest k items are in smallest k positions|
+|Insertion|n|n^2|n^2|Yes|1|First k items are sorted|
+|Merge|nlogn|nlogn|nlogn|Yes|n|Groups of 2^x are sorted|
+|Quick|nlogk|Med/Rand/Check<br>nlogk|First/Mid/Last<br>nk|No|logn|Array is partitioned around pivot<br>T(n) = pT(n/p) + O(nlogp) -> nlogn<br>Duplicate: n^2 if no 3-way partition|
+|Reversal||n(logn)^2||||Quicksort with Mergesort around pivot
 
 ## Trees
 
 |Structure|Operation|Remark|
 |:---:|:---:|:---:|
-|Binary Search|h|Full Tree: n = 2^h - 1<br>**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
-|AVL|logn|h < 2logn or n > 2^(h/2)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)<br>**Insert** 2R **Delete** 2lognR
+|Binary Search|h|Full Tree: n = 2^(h+1) - 1<br>**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
+|Scapegoat|logn|Rebuild subtree rooted at scapregoat when triggered|
+|AVL|logn|h < 1.44logn or n > 2^(h/1.44)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)<br>**Insert** 2 x R **Delete** 2logn x R
 |Trie|L|More space due to more overhead|
 |(a,b)|logn|**split** for insert, **merge+share** for delete
 |kd|h|Alternate splitting horizontally and vertically
