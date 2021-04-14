@@ -1,5 +1,5 @@
 ### National University of Singapore
-- CS2040S Data Structures and Algorithms ([Markdown](data-structures-algorithms.md)) ([Midterm Cheatsheet](cheatsheet/cs2040s-midterm.pdf))  
+- CS2040S Data Structures and Algorithms ([Markdown](data-structures-algorithms.md)) ([Midterm Cheatsheet](cheatsheet/cs2040s-midterm.pdf)) ([Final Cheatsheet](cheatsheet/cs2040s-final.pdf))
 - CS2100 Computer Organisation ([Markdown](computer-organisation.md)) ([Midterm Cheatsheet](cheatsheet/cs2100-midterm.pdf)) 
 - CS2107 Intro to Information Security
 - UHB2214 Effective Decision Making ([PDF](behavioural-economics.pdf))
