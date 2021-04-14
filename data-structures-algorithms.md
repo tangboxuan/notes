@@ -41,7 +41,7 @@ for (1,n-1): swap(i,rand(0,i))
 |Selection|n^2|n^2|n^2|No|1|**Smallest k items are in smallest k positions**|
 |Insertion|n|n^2|n^2|Yes|1|**First k items are sorted**|
 |Merge|nlogn|nlogn|nlogn|Yes|n|**Groups of 2^x are sorted**|
-|Quick|nlogk|Median/<br>Rand/Check<br>nlogk|Specific<br>nk|No|logn|**Array is partitioned around pivot**<br>T(n) = pT(n/p) + O(nlogp) = nlogn<br>Duplicate: n^2 if no 3-way partition|
+|Quick|nlogk|Median/<br>Random/<br>Check<br>nlogk|Specific<br>nk|No|logn|**Array is partitioned around pivot**<br>T(n) = pT(n/p) + O(nlogp) = nlogn<br>Duplicate: n^2 if no 3-way partition|
 |Heap|nlogn|nlogn|nlogn|No|1|Build Heap: n, Get Sort: nlogn|
 |Reversal||n(logn)^2||||Quicksort with Mergesort around pivot
 
@@ -50,13 +50,13 @@ for (1,n-1): swap(i,rand(0,i))
 |Structure|Operation|Remark|
 |:---:|:---:|:---:|
 |Binary Search|h|Full Tree: n = 2^(h+1) - 1<br>**Delete** if x has 2 child: replace x with successor(x)<br>**Successor** right.min() or recurse to (left of parent or root)
-|Scapegoat|logn|Rebuild subtree rooted at scapregoat when triggered|
+|Scapegoat|logn|Rebuild subtree rooted at scapegoat when triggered|
 |AVL|logn|h < 1.44logn or n > 2^(h/1.44)<br>v.left Left Heavy or Balanced: right(v)<br>v.left Right Heavy: left(v.left), right(v)<br>**Insert** 2 x R **Delete** 2logn x R
 |Trie|L|More space due to more overhead|
-|(a,b)|logn|**split** for insert, **merge+share** for delete
+|(a,b)|logn|**Split** for insert, **Merge+Share** for delete
 |kd|h|Alternate splitting horizontally and vertically
 |Heap|logn|1. Heap Ordering: Pr(parent) >= Pr(child)<br>2. Complete Binary Tree<br>**Delete** Swap(last), Bubble Down<br>Array: Left(x)=2x+1, Right(x)=2x+2|
-|Leftist Heap|logn|max rightRank = logn, max height = n<br>**merge** (logn) merge smaller root with right child of other<br>swap if left>right, update rightRank<br>**Insert** merge with single vertex, swap <= 1<br>**GetMax** remove root, merge child<br>**Delete** update rightRank (stop if left child), swap <= 1|
+|Leftist Heap|logn|max rightRank = logn, max height = n<br>**Merge** (logn) merge smaller root with right child of other<br>swap if left>right, update rightRank<br>**Insert** merge with single vertex, swap <= 1<br>**GetMax** remove root, merge child<br>**Delete** update rightRank (stop if left child), swap <= 1|
 
 |Augmented Structure|Remark|
 |:---:|:---|
@@ -70,9 +70,9 @@ Must redefine **hashCode** _default returns address_ and **equals** _for **get**
 |Hash Table|Insert|Search|Space|Remarks|
 |:---:|:---:|:---:|:---:|:---:|
 |Linked List|h+1 = 1|h+n/m = 1|m+n|Simple Uniform Hashing Assumption: Equally mapped to every bucket<br>Worst case for search = n|
-|Linked List<br>w/ Resize|amor(1)|E(1)|m+n|Ideal: ==m -> Double Table . n<m/4 -> Half Table<br>Increment O(n^2) . Double O(n) . Square O(n^2)|
+|Linked List<br>w/ Resize|amor(1)|exp(1)|m+n|Ideal: n==m -> Double Table . n<m/4 -> Half Table<br>Increment O(n^2) . Double O(n) . Square O(n^2)|
 |Open Addressing|h<br>+<br>1/(1-a),<br>|where<br>a = n/m<br>a<  1|n|Uniform Hashing Assumption: Equally mapped to every permutation<br>Linear Probing - Clusters<br>Double Hashing - h(k,i) = f(k) + ig(k) mod _m_, (m,g(k)) -> n^2 permutations !UHA<br>**Delete** sets node to tombstone value for **search**|
-|Fingerprint<br>Bloom|k|k||False positive. No false negative.<br>**Delete**(Counter/Tombstone) -> False negative<br>FHT: _p = P(False positive)_ . p = 1-e^(-n/m) . n/m <= ln(1/1-p)<br>BT: p = (1-e^(-kn/m)^k) . opt(k) = (m*ln2)/n|
+|Fingerprint<br>Bloom|k|k||False positive. No false negative.<br>**Delete**(Counter/Tombstone) -> False negative<br>_Let p = P(False positive)_<br>FHT: p = 1-e^(-n/m) . n/m <= ln(1/1-p)<br>BT: p = (1-e^(-kn/m)^k) . opt(k) = (m*ln2)/n|
 
 ## Graphs & Trees
 Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
@@ -80,7 +80,7 @@ Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
 |:---:|:---:|:---:|
 |Bellman-Ford|VE|No negative cycles|
 |Dijkstra|ElogV(AVL)<br>E+VlogV(Fibo Heap)|No negative edge<br>Vx(insert+deleteMin) + Ex(decreseKey)|
-|Toposort<br>Relax|V+E<br>E|No directed cycles (Directed Acyclic Graph)<br>Post-order DFS or Kahn's(nodes w/o in-edges)|
+|Toposort<br>Relax|V+E<br>E|No directed cycles (Directed Acyclic Graph)<br>Post-order DFS or Kahn's(get nodes w/o in-edges)|
 |BFS|V+E(Queue)|Same Weight|
 |DFS|V+E(Stack)|No cycle (Tree)|
 ||||
@@ -95,7 +95,7 @@ Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
 |:---:|:---:|:---:|
 |Prim's|ElogV<br>E(known)|Add min edge on cut|
 |Kruskal's|ElogV<br>aE(known)|Add min edge not in same tree<br>Sort + ExUF = ElogE + Ea(n)|
-|Boruvska's|ElogV|Every step: Add min edge for every node<br>Search min out-edge = V+E using B/DFS<br>Update component ID = V|
+|Boruvska's|ElogV|Every step:<br>Add min edge for every node<br>Search min out-edge = V+E using B/DFS<br>Update component ID = V|
 |Rooted<br>Directed|E|Add min incoming edge|
 
 </td>
@@ -112,10 +112,26 @@ Steiner Tree (<2xOPT)
 </tr>
 </table>
 
-|Union-Find|Find|Union|Union-Find|Find|Union|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|Quick Find|1|n|Weighted Union|logn|logn|
-|Quick Union|n|n|Weighted Union +<br>Path Compression|a(m,n)|a(m,n)|
+<table>
+<tr>
+<td>
+
+|Union-Find|Find|Union|
+|:---:|:---:|:---:|
+|Quick Find|1|n|
+|Quick Union|n|n|
+
+</td>
+<td>
+
+|Union-Find|Find|Union|
+|:---:|:---:|:---:|
+|Weighted Union|logn|logn|
+|Weighted Union +<br>Path Compression|a(m,n)|a(m,n)|
+
+</td>
+</tr>
+</table>
 
 ## Dynamic Programming
 
