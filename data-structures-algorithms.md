@@ -93,7 +93,7 @@ Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
 
 |MST|Runtime|Idea|
 |:---:|:---:|:---:|
-|Prim's|ElogV<br>E(known)|Add min edge on cut|
+|Prim's|Dijkstra's<br>E(known)|Add min edge on cut|
 |Kruskal's|ElogV<br>aE(known)|Add min edge not in same tree<br>Sort + ExUF = ElogE + Ea(n)|
 |Boruvska's|ElogV|Every step:<br>Add min edge for every node<br>Search min out-edge = V+E using B/DFS<br>Update component ID = V|
 |Rooted<br>Directed|E|Add min incoming edge|
