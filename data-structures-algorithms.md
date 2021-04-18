@@ -65,7 +65,7 @@ for (1,n-1): swap(i,rand(0,i))
 |Orthogonal Range Search|Store all points as leaves of a BST. Internal nodes stores max of left.<br>**Range Query** (k+logn) find split node. do left & right traversals. <br>**2D Range Query** (k+(logn)^2) for node in x-tree, build y-tree using nodes in subtree. **Build2D** T(nlogn) S(nlogn)|
 <div style="page-break-after: always;"></div>
 
-## Hashing
+## Hashing 
 Must redefine **hashCode** _default returns address_ and **equals** _for **get** to work_  
 |Hash Table|Insert|Search|Space|Remarks|
 |:---:|:---:|:---:|:---:|:---:|
@@ -84,6 +84,7 @@ Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
 |BFS|V+E(Queue)|Same Weight|
 |DFS|V+E(Stack)|No cycle (Tree)|
 ||||
+|LCA|(logV)^2|Store depth and skip pointers to ancestors 2^n up<br>Binary search isAncestor(_getAncestor(u,hops)_,v)|
 |MED|nm|Toposort + Relax|
 
 <div style="page-break-after: always;"></div>
@@ -95,19 +96,25 @@ Adjacency List O(V+E) Adjacency Matrix O(V^2) Edge List O(E)
 |:---:|:---:|:---:|
 |Prim's|Dijkstra's<br>E(known)|Add min edge on cut|
 |Kruskal's|ElogV<br>aE(known)|Add min edge not in same tree<br>Sort + ExUF = ElogE + Ea(n)|
-|Boruvska's|ElogV|Every step:<br>Add min edge for every node<br>Search min out-edge = V+E using B/DFS<br>Update component ID = V|
-|Rooted<br>Directed|E|Add min incoming edge|
+|Boruvska's|ElogV|Every step:<br>Add min edge for every node<br>Search min out-edge<br>= V+E using B/DFS<br>Update component ID = V|
 
 </td>
 <td>
 
 MST Property
-1. Max edge in **cycles** NOT in MST
-1. Min edge in **cut** IS in MST
+1.Max edge in **cycles** NOT in MST
+2.Min edge in **cut** IS in MST  
 
-Steiner Tree (<2xOPT)
-1. Run APSP & build new graph
-1. Run MST and remove duplicate edges
+Steiner Tree (<2xOPT)  
+1.Run APSP & build new graph
+2.Run MST and remove duplicate edges  
+
+Rooted Directed Graph:  
+Add min incoming edge O(E)  
+
+Faster MST (EloglogV):  
+1.loglogV Boruvska's
+2.Prim's using Fibo Heap
 </td>
 </tr>
 </table>
@@ -138,12 +145,21 @@ Steiner Tree (<2xOPT)
 |DP|Runtime|Subproblem|
 |:---:|:---:|:---:|
 |LIS|n^2|**S[i]** = max(**S[j]**)+1 for all j>1 and S[j]>S[i]. Base: S[n]=0|
-|Lazy<br>Prize|kE|**P[v,k]** = max(**P[w,k-1]**)+W(w,v)<br>for all w points to v. Base: P[v,0]=0|
-|Vertex<br>Cover|V|**S[v,0]** = sum **S[w,1]**, w neighbour of v<br>**S[v,1]** = 1 + sum min(**S[w,0]**, **S[w,1]**)<br>Base: S[leaf,0]=0 S[leaf,1]=1|
+|Prize|kE|**P[v,k]** = max(**P[w,k-1]**)+W(w,v) for all w points to v. Base: P[v,0]=0|
+|Vertex<br>Cover|V|**S[v,0]** = sum **S[w,1]** and **S[v,1]** = 1 + sum min(**S[w,0]**, **S[w,1]**)<br>for all w neighbour of v. Base: S[leaf,0]=0 S[leaf,1]=1|
+|Road Trip|nL^2|**Cost[n,f]** = min(**Cost[n+1,f-d+i]**+c*i), start n with f fuel, d<=f<=L|
 |APSP|V^3|S[v,w,n] = min(**S[v,w,n-1]**, **S[v,n,n-1]**+**S[n,w,n-1]**)<br>Base: S[v,w,0]=W(v,w)<br>P[v,w,n] = P[v,w,n-1] OR P[v,n,n-1] AND P[n,w,n-1]|
+
+<table><tr><td>
 
 |APSP|Runtime|Method|
 |:---:|:---:|:---:|
 |Sparse +ve|(V^2)logV|Dijkstra's|
 |Unweighted|VE|BFS|
 |All|V^3|Floyd-Warshall|
+
+</td><td>
+
+<img src="CS2040S/images/minimaxwidth.png" width="300px">
+
+</td></tr></table>
