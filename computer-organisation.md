@@ -10,6 +10,13 @@
 |Excess-n|x-n
 |IEEE 754|(Sign) (1.Mantissa) x 2^Exponent||Invert first bit|1: Sign<br>8: Ex-127 Exp|---<br>23: Mantissa
 
+|System|-2|-1|0|1|2
+|:---:|:---:|:---:|:---:|:---:|:---:
+|Sign & Magnitude|10000010|10000001|00000000|00000001|00000010
+|1s Complement|11111101|11111110|0000/1111|00000001|00000010
+|2s Complement|11111110|11111111|00000000|00000001|00000010
+|Excess-127|01111101|01111110|01111111|10000000|10000001|
+
 ## MIPS
 
 
@@ -160,7 +167,8 @@ POS
 
 ## Links
 
-[Hexadecimal to IEEE 754](https://babbage.cs.qc.cuny.edu/IEEE-754.old/32bit.html)  
+[IEEE 754 to Decimal](https://babbage.cs.qc.cuny.edu/IEEE-754.old/32bit.html)  
+[Decimal to IEEE 754](https://www.ultimatesolver.com/en/ieee-754)
 [Hexadecimal-Binary-Decimal](https://www.rapidtables.com/convert/number/binary-to-hex.html)  
 [XOR](http://xor.pw/#)  
 [Bitwise Calculator](https://miniwebtool.com/bitwise-calculator/)  
