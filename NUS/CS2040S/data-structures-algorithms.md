@@ -160,6 +160,6 @@ Faster MST (EloglogV):
 
 </td><td>
 
-<img src="CS2040S/images/minimaxwidth.png" width="300px">
+<img src="images/minimaxwidth.png" width="300px">
 
 </td></tr></table>

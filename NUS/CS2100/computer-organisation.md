@@ -29,24 +29,24 @@
 
 <div style="page-break-after: always;"></div>
 
-![MIPS](CS2100/images/mips.jpg)
+![MIPS](images/mips.jpg)
 
 <div style="page-break-after: always;"></div>
 
-![Control](CS2100/images/control.png)
-![Datapath](CS2100/images/pipeline.png)
+![Control](images/control.png)
+![Datapath](images/pipeline.png)
 
 <div style="page-break-after: always;"></div>
 
-![Add: Chong Wen Hao](CS2100/images/dp_add.png)
-![BEQ: Chong Wen Hao](CS2100/images/dp_beq.png)
-![LW: Chong Wen Hao](CS2100/images/dp_lw.png)
-![SW: Chong Wen Hao](CS2100/images/dp_sw.png)
+![Add: Chong Wen Hao](images/dp_add.png)
+![BEQ: Chong Wen Hao](images/dp_beq.png)
+![LW: Chong Wen Hao](images/dp_lw.png)
+![SW: Chong Wen Hao](images/dp_sw.png)
 
 <div style="page-break-after: always;"></div>
 
-![ALUcontrol](CS2100/images/ALUcontrol.png)
-![ALU](CS2100/images/ALU.png)
+![ALUcontrol](images/ALUcontrol.png)
+![ALU](images/ALU.png)
 
 <table><tr><td>
 
@@ -73,12 +73,12 @@
 <div style="page-break-after: always;"></div>
 
 ## Boolean Algebra
-<img src="CS2100/images/boolean_law.png" width="80%">
-<img src="CS2100/images/boolean_theorem.png" width="90%">
+<img src="images/boolean_law.png" width="80%">
+<img src="images/boolean_theorem.png" width="90%">
 
 <table><tr><td>
 
-<img src="CS2100/images/minterm_maxterm.png" width="800px">
+<img src="images/minterm_maxterm.png" width="800px">
 
 </td><td>
 
@@ -90,11 +90,11 @@ x+1 = 1 -> x.0 = 0
 ## Logic Circuits   
 <table><tr><td>
 
-![NAND Logic](CS2100/images/nand.png)
+![NAND Logic](images/nand.png)
 
 </td><td>
 
-![NOR Logic](CS2100/images/nor.png)
+![NOR Logic](images/nor.png)
 
 </td><td>
 
@@ -109,41 +109,41 @@ POS
 </td></tr></table>
 <table><tr><td>
 
-![K2 Map](CS2100/images/k2.png)
+![K2 Map](images/k2.png)
 
 </td><td>
 
-![K3 Map](CS2100/images/k3.png)
+![K3 Map](images/k3.png)
 
 </td><td>
 
-![K4 Map](CS2100/images/k4.png)
+![K4 Map](images/k4.png)
 
 </td></tr></table>
 
-![Half Adder](CS2100/images/half_adder.png)
-![Full Adder](CS2100/images/full_adder.png)
-![Magnitude Comparator](CS2100/images/magnitude_comparator.png)
+![Half Adder](images/half_adder.png)
+![Full Adder](images/full_adder.png)
+![Magnitude Comparator](images/magnitude_comparator.png)
 <div style="page-break-after: always;"></div>
 
 ## Functions using MSI
 ### Demultiplexers are similar to a decoder (select) with enable (data)  
 ### Multiplexers are similar to a decoder (select) added with 2^n input lines (input)  
-![Decode Functions](CS2100/images/decode_functions.png)
-![Mux Functions](CS2100/images/mux_functions.png)
+![Decode Functions](images/decode_functions.png)
+![Mux Functions](images/mux_functions.png)
 
 <div style="page-break-after: always;"></div>
 
 ## Sequential Logic
-![Flip Flop Characteristics Table](CS2100/images/flip_flop_table.png)
-![Flip Flop Excitation Table](CS2100/images/excitation_table.png)
+![Flip Flop Characteristics Table](images/flip_flop_table.png)
+![Flip Flop Excitation Table](images/excitation_table.png)
 <div style="page-break-after: always;"></div>
 
 ## Cache
-![Write Policy](CS2100/images/write_cache.png)
-![Direct Mapped Cache](CS2100/images/direct_cache.png)
-![Set Associative Cache](CS2100/images/set_cache.png)
-![Fully Associative Cache](CS2100/images/full_cache.png)
+![Write Policy](images/write_cache.png)
+![Direct Mapped Cache](images/direct_cache.png)
+![Set Associative Cache](images/set_cache.png)
+![Fully Associative Cache](images/full_cache.png)
 
 <table><tr><td>
 
@@ -168,7 +168,7 @@ POS
 ## Links
 
 [IEEE 754 to Decimal](https://babbage.cs.qc.cuny.edu/IEEE-754.old/32bit.html)  
-[Decimal to IEEE 754](https://www.ultimatesolver.com/en/ieee-754)
+[Decimal to IEEE 754](https://www.ultimatesolver.com/en/ieee-754)  
 [Hexadecimal-Binary-Decimal](https://www.rapidtables.com/convert/number/binary-to-hex.html)  
 [XOR](http://xor.pw/#)  
 [Bitwise Calculator](https://miniwebtool.com/bitwise-calculator/)  
